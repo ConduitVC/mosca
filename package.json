@@ -1,5 +1,5 @@
 {
-  "name": "mosca",
+  "name": "@conduitvc/mosca",
   "version": "2.8.3",
   "description": "MQTT broker as a module",
   "main": "index.js",
@@ -97,7 +97,7 @@
     "uuid": "^2.0.1",
     "websocket-stream": "~3.1.0"
   },
-  "optionalDependencies": {
+  "peerDependencies": {
     "leveldown": "~1.4.3",
     "amqp": "~0.2.4",
     "ioredis": "^1.15.1",
