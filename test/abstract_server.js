@@ -1,5 +1,5 @@
 var steed = require("steed");
-var ascoltatori = require("ascoltatori");
+var ascoltatori = require("@conduitvc/ascoltatori");
 
 module.exports = function(moscaSettings, createConnection) {
   var instance;
@@ -852,7 +852,7 @@ module.exports = function(moscaSettings, createConnection) {
     });
   });
 
-  
+
   // tests for local authorizePublish, with 'ignore' return
   var authorizePublishIgnore = function(client, topic, payload, callback) {
     var auth = true;
@@ -862,10 +862,10 @@ module.exports = function(moscaSettings, createConnection) {
     if (topic === 'authfalse'){
         auth = false;
     }
-    
+
     callback(null, auth);
   };
-  
+
   it("should not call onPublished on publish to topic where auth='ignore'", function(done) {
     var onPublishedCalled = false;
     var clientId;
@@ -908,7 +908,7 @@ module.exports = function(moscaSettings, createConnection) {
       });
     });
   });
-  
+
   it("should disconnect client on publish to topic where auth=false", function(done) {
     var onPublishedCalled = false;
     var clientId;
@@ -939,7 +939,7 @@ module.exports = function(moscaSettings, createConnection) {
         expect(test).to.eql(true);
         client.disconnect();
       }, 2000);
-      
+
       // auth=false should NOT puback
       client.on("puback", function() {
         expect(onPublishedCalled).to.eql(false);
@@ -982,7 +982,7 @@ module.exports = function(moscaSettings, createConnection) {
       timer = setTimeout(function(){
         client.disconnect();
       }, 1000);
-      
+
       // default QOS 2 should NOT puback
       client.on("puback", function() {
         count++;
@@ -997,7 +997,7 @@ module.exports = function(moscaSettings, createConnection) {
     });
   });
 
-  
+
   it("should optionally (onQoS2publish='dropToQoS1') puback client publish to QOS 2", function(done) {
     var onPublishedCalled = false;
     var clientId;
@@ -1025,7 +1025,7 @@ module.exports = function(moscaSettings, createConnection) {
       timer = setTimeout(function(){
         client.disconnect();
       }, 1000);
-      
+
       // with maxqos=1, QOS 2 should puback
       client.on("puback", function() {
         count++;
@@ -1070,7 +1070,7 @@ it("should optionally (onQoS2publish='disconnect') disconnect client on publish 
         expect(test).to.eql(true);
         client.disconnect();
       }, 2000);
-      
+
       // onQoS2publish = 'disconnect' should NOT puback
       client.on("puback", function() {
         expect(onPublishedCalled).to.eql(false);
@@ -1088,7 +1088,7 @@ it("should optionally (onQoS2publish='disconnect') disconnect client on publish 
   });
 
 
-  
+
   it("should emit an event when a new client is connected", function(done) {
     buildClient(done, function(client) {
 

@@ -1,5 +1,5 @@
 var steed = require("steed");
-var ascoltatori = require("ascoltatori");
+var ascoltatori = require("@conduitvc/ascoltatori");
 var abstractServerTests = require("./abstract_server");
 var createConnection = require("./helpers/createWebsocketConnection");
 var request = require('supertest');

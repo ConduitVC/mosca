@@ -1,6 +1,6 @@
 var mqtt = require("mqtt");
 var steed = require("steed");
-var ascoltatori = require("ascoltatori");
+var ascoltatori = require("@conduitvc/ascoltatori");
 var abstractServerTests = require("./abstract_server");
 var MongoClient = require("mongodb").MongoClient;
 var clean = require("mongo-clean");

@@ -1,6 +1,6 @@
 {
   "name": "@conduitvc/mosca",
-  "version": "2.8.3",
+  "version": "2.8.3-patch.1",
   "description": "MQTT broker as a module",
   "main": "index.js",
   "bin": {
@@ -69,7 +69,7 @@
   },
   "dependencies": {
     "array-from": "^2.1.1",
-    "ascoltatori": "^3.0.0",
+    "@conduitvc/ascoltatori": "^4.3.0-patch.1",
     "brfs": "~1.4.2",
     "clone": "^1.0.2",
     "commander": "~2.9.0",

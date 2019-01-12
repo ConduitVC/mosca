@@ -1,5 +1,5 @@
 var steed = require("steed");
-var ascoltatori = require("ascoltatori");
+var ascoltatori = require("@conduitvc/ascoltatori");
 var abstractServerTests = require("./abstract_server");
 var net = require("net");
 var createConnection = require("./helpers/createConnection");
@@ -194,7 +194,7 @@ describe("mosca.Server", function() {
         var subackCount = 0;
         client.on("suback", function() { // unsubscribe after subscriptions
           subackCount++;
-          if (subackCount == subCount) { 
+          if (subackCount == subCount) {
             var messageId = Math.floor(65535 * Math.random());
             client.unsubscribe({
               unsubscriptions: ["hello"],
@@ -267,7 +267,7 @@ describe("mosca.Server", function() {
     this.instance.once("published", function(packet) {
       messageId = packet.messageId;
     });
-	
+
     this.instance.publish({
       topic: "hello",
       payload: "some data"
